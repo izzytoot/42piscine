@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	ft_ultimate_range(int *range[], int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	s;
 	int	i;
@@ -27,7 +27,7 @@ int	ft_ultimate_range(int *range[], int min, int max)
 	}
 	s = max - min;
 	r = (int *)malloc(sizeof(int) * (s));
-	if (r == NULL)
+	if (! r)
 	{
 		*range = NULL;
 		return (-1);
@@ -42,24 +42,25 @@ int	ft_ultimate_range(int *range[], int min, int max)
 	}
 	return (i);
 }
-
+/*
 int	main(void)
 {
 	int	min;
 	int	max;
 	int	i;
 	int	size;
-	int	*result;
+	int	*range;
 
 	min = 1;
 	max = 10;
 	i = 0;
-	size = max - min;
-	result = ft_ultimate_range(&result, min, max);
+	size = ft_ultimate_range(&range, min, max);
 	while (i < size)
 	{
-		printf("%i ", result[i]);
+		printf("%i ", range[i]);
 		i++;
 	}
+	free (range);
 	return (0);
 }
+*/

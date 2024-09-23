@@ -49,9 +49,10 @@ int	main(void)
 	str = "Hello";
 	new_str = ft_strdup(str);
 	printf ("%s\n", new_str);
-	free(new_str);
+	
 	new_str = strdup(str);
 	printf ("%s\n", new_str);
+	free(new_str);
 	return (0);
 }
 */
