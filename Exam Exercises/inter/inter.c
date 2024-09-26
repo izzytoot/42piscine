@@ -1,49 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter.c                                            :+:      :+:    :+:   */
+/*   inter2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 14:43:19 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/09/25 14:43:25 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/09/26 09:44:43 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/09/26 09:44:44 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	verif(char *str, int index, char c)
+int	check(char *str, int index, char c)
 {
-	int i;
+	int	l;
 	
-	i = 0;
-	while (i < index)
+	l = 0;
+	while (l < index)
 	{
-		if (str[i] == c)
+		if (str[l] == c)
 		{
 			return (0);
 		}
-		i++;
+		l++;
 	}
 	return (1);
 }
 
 int	main(int argc, char *argv[])
 {
+	int	i;
+	int	j;
+	
+	i = 0;
 	if (argc == 3)
 	{
-		int i = 0;
-		int j = 0;
 		while (argv[1][i])
 		{
-			if (verif(argv[1], i, argv[1][i]))
+			if (check(argv[1], i, argv[1][i]) == 1)
 			{
+				j = 0;
 				while (argv[2][j])
 				{
-					if (argv[2][j] == argv[1][i])
+					if (argv[1][i] == argv[2][j])
 					{
-						write(1, &argv[1][i], 1);
-						break ;
+						write (1, &argv[1][i], 1);
+						break;
 					}
 					j++;
 				}
@@ -51,6 +54,6 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 	}
-	write(1, "\n", 1);
+	write (1, "\n", 1);
 	return (0);
 }
